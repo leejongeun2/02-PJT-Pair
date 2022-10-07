@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% load django_bootstrap5 %}
-
+{% load static %}
 {% block content %}
   <h1>index</h1>
+  <img src="{% static 'movie_reivew/logo.png' %}" alt="">
   <a href="{% url 'movie_review:create' %}">리뷰 쓰기</a>
 
   <div>

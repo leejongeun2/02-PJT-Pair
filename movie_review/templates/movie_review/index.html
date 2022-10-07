@@ -2,5 +2,17 @@
 {% load django_bootstrap5 %}
 
 {% block content %}
-<h1>index</h1>
+  <h1>index</h1>
+  <a href="{% url 'movie_review:create' %}">리뷰 쓰기</a>
+
+  <div>
+    {% for review in review_list%}
+      <p>{{review.pk}}</p>
+      <p>
+        <a href="{% url 'movie_review:detail' review.pk %}">
+          {{review.title}}
+        </a>
+      </p>
+    {% endfor %}
+  </div>
 {% endblock %}

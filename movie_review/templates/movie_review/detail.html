@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div>
+
+    <a href="{% url 'movie_review:update' review.pk %}" class='btn btn-primary'>리뷰 수정</a>
+  </div>
+
+{% endblock content %}

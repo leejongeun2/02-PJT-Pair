@@ -2,15 +2,16 @@
 {% load django_bootstrap5 %}
 <!DOCTYPE html>
 <html lang="ko">
-  
+
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'movie_review/style.css' %}">
+    <title>Document</title>
   </head>
-  
+
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
@@ -28,12 +29,12 @@
               <a class="nav-link" href="{% url 'movie_review:create' %}">리뷰작성</a>
             </li>
           </ul>
+        </div>
+      </nav>
+      <div class="container">
+        {% block content %}{% endblock %}
       </div>
-    </nav>
-    <div class="container">
-      {% block content %}{% endblock %}
-    </div>
-    {% bootstrap_javascript %}
-  </body>
+      {% bootstrap_javascript %}
+    </body>
 
-</html>
+  </html>

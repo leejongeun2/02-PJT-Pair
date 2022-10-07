@@ -1,19 +1,31 @@
 {% extends 'base.html' %}
-{% load django_bootstrap5 %}
 {% load static %}
+{% load django_bootstrap5 %}
 {% block content %}
-  <h1>index</h1>
-  <img src="{% static 'movie_reivew/logo.png' %}" alt="">
-  <a href="{% url 'movie_review:create' %}">리뷰 쓰기</a>
-
   <div>
-    {% for review in review_list%}
-      <p>{{review.pk}}</p>
-      <p>
-        <a href="{% url 'movie_review:detail' review.pk %}">
-          {{review.title}}
-        </a>
-      </p>
-    {% endfor %}
+    <table class='table mt-3 table-hover'>
+      <thead class='table-dark'>
+        <tr>
+          <th>pk</th>
+          <th>리뷰 제목</th>
+          <th>영화 이름</th>
+          <th>영화 평점</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for review in review_list%}
+          <tr>
+            <td>{{review.pk}}</td>
+            <td>
+              <a href="{% url 'movie_review:detail' review.pk %}">
+                {{review.title}}
+              </a>
+            </td>
+            <td>{{review.movie_name}}</td>
+            <td>{{review.garde}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </div>
 {% endblock %}

@@ -45,3 +45,14 @@ def detail(request,pk):
         'review':review,
     }
     return render(request, 'movie_review/detail.html', context)
+
+def delete(request, pk):
+    review = Review.objects.get(pk=pk)
+    if request.method == 'POST':
+        review.delete()
+        return redirect('movie_review:index')
+    context = {
+        'review':review
+    }
+    return render(request, 'movie_review/detail.html', context)
+
